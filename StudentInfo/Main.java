@@ -12,16 +12,16 @@ class Student {
     public void add() {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter ID: ");
+        System.out.println("Enter ID: ");
         ID = input.next();
         input.nextLine();
-        System.out.print("Enter Name: ");
+        System.out.println("Enter Name: ");
         Name = input.nextLine();
 
-        System.out.print("Enter Dep: ");
+        System.out.println("Enter Dep: ");
         Dep = input.next();
 
-        System.out.print("Enter Phone: ");
+        System.out.println("Enter Phone: ");
         Phone = input.next();
 
         System.out.println("\n--------Student Details--------");
