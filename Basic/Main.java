@@ -18,13 +18,16 @@ class X {
         // System.out.println(data[i]);
         // }
 
-        int mark = 80;
+        int mark = 20;
 
         // if (mark >= 40) {
         // System.out.println("Pass");
         // } else {
         // System.out.println("Failled");
         // }
+
+        String res = (mark >= 40) ? "pass" : "Faill";
+        System.out.println("res is " + res);
 
     }
 
