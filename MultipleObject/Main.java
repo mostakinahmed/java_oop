@@ -2,7 +2,7 @@ package MultipleObject;
 
 import java.util.Scanner;
 
-//class for user defined data type 
+//----------class for user defined data type 
 class Data {
 
     int id;
