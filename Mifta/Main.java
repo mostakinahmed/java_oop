@@ -139,7 +139,7 @@ public class Main {
     public void welcomePage() {
         while (true) {
 
-            System.out.println("\n\n\n    MIFTA's FOOD ORDERING SYSTEM     ");
+            System.out.println("\n\n\n    Jum's FOOD ORDERING SYSTEM     ");
             System.out.println("--------------------------------------");
             System.out.println("1. Registration");
             System.out.println("2. Login");
