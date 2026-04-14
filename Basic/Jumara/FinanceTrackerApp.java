@@ -1,9 +1,9 @@
-package Jumara;
+package Basic.Jumara;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Abstraction
+
 abstract class Transaction {
     protected String name;
     protected double cash;
