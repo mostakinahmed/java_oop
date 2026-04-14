@@ -1,4 +1,4 @@
-package Basic.Jumara;
+package Basic.jum;
 
 import java.util.ArrayList;
 import java.util.Scanner;
