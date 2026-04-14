@@ -3,25 +3,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FileIOPractice {
+public class Main {
     public static void main(String[] args) {
+
+
+
         String fileName = "practice.txt";
 
-        // 1. Writing to a File (Overwrites by default)
+     
         try (FileWriter writer = new FileWriter(fileName)) {
             writer.write("Hello Java!\n");
-            writer.write("This is a practice file.\n");
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
+          
+        }
+         catch (IOException e) {
             System.out.println("An error occurred during writing.");
         }
 
-        // 2. Appending to an Existing File
-        // The 'true' parameter in FileWriter(file, true) enables append mode
+
+
+        
         try (FileWriter appendWriter = new FileWriter(fileName, true)) {
             appendWriter.write("This line was appended later.\n");
-            appendWriter.write("Java I/O is powerful.\n");
-            System.out.println("Successfully appended data.");
+
         } catch (IOException e) {
             System.out.println("An error occurred during appending.");
         }
@@ -34,9 +37,8 @@ public class FileIOPractice {
         try (Scanner reader = new Scanner(new File(fileName))) {
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
-                System.out.println("Read: " + line);
+        
 
-                // Searching for specific content
                 if (line.contains(searchTerm)) {
                     found = true;
                 }
