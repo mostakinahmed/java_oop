@@ -1,52 +1,43 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FileIOPractice {
-    public static void main(String[] args) {
-        String fileName = "practice.txt";
+public class ArrayListPractice {
+  public static void main(String[] args) {
 
-        // 1. Writing to a File (Overwrites by default)
-        try (FileWriter writer = new FileWriter(fileName)) {
-            writer.write("Hello Java!\n");
-            writer.write("This is a practice file.\n");
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred during writing.");
-        }
+    ArrayList<String> fruits = new ArrayList<>();
 
-        // 2. Appending to an Existing File
-        // The 'true' parameter in FileWriter(file, true) enables append mode
-        try (FileWriter appendWriter = new FileWriter(fileName, true)) {
-            appendWriter.write("This line was appended later.\n");
-            appendWriter.write("Java I/O is powerful.\n");
-            System.out.println("Successfully appended data.");
-        } catch (IOException e) {
-            System.out.println("An error occurred during appending.");
-        }
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Cherry");
+    fruits.add("Apple");
 
-        // 3. Reading and Searching for Content
-        System.out.println("\n--- Reading & Searching ---");
-        String searchTerm = "Java";
-        boolean found = false;
+    System.out.println("\nInitial List: " + fruits);
 
-        try (Scanner reader = new Scanner(new File(fileName))) {
-            while (reader.hasNextLine()) {
-                String line = reader.nextLine();
-                System.out.println("Read: " + line);
+    System.out.println("\nSize of list: " + fruits.size());
 
-                // Searching for specific content
-                if (line.contains(searchTerm)) {
-                    found = true;
-                }
-            }
-            
-            if (found) {
-                System.out.println("\nSearch result: Found '" + searchTerm + "' in the file!");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred during reading.");
-        }
-    }
-}
+    String secondFruit = fruits.get(1);
+    System.out.println("\nElement at index 1: " + secondFruit);
+
+    fruits.set(2, "Blueberry");
+    System.out.println("\nAfter set(2, 'Blueberry'): " + fruits);
+
+    System.out.println("\nFirst index of 'Apple': " + fruits.indexOf("Apple"));
+    System.out.println("\nLast index of 'Apple': " + fruits.lastIndexOf("Apple"));
+
+    fruits.remove("Apple");
+    System.out.println("\nAfter removals: " + fruits);
+
+    ArrayList<String> tropical = new ArrayList<>();
+
+    tropical.add("Mango");
+    tropical.add("Papaya");
+
+    fruits.addAll(tropical);
+
+    System.out.println("\nAfter addAll(tropical): " + fruits);
+
+    List<String> sub = fruits.subList(1, 5);
+
+    System.out.println("\nSubList (index 1 to 2): " + sub);
+  }
+}   a
