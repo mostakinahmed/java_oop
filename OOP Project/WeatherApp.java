@@ -37,7 +37,7 @@ class District {
     }
 }
 
-// INHERITANCE + POLYMORPHISM
+// INHERITANCE , POLYMORPHISM
 class DistrictWeather extends Location implements Reportable {
 
     private double temp;
@@ -51,7 +51,6 @@ class DistrictWeather extends Location implements Reportable {
         this.description = description;
     }
 
-    @Override
     public void showReport() {
         System.out.println("\n====== WEATHER REPORT ======");
         System.out.println("City        : " + getCityName());
@@ -90,7 +89,7 @@ public class WeatherApp {
                         System.out.println();
                 }
 
-                System.out.println("\n\nEnter District ID (0 to exit): ");
+                System.out.print("\n\nEnter District ID (0 to exit): ");
                 int choice = sc.nextInt();
 
                 // EXIT CONDITION
@@ -125,53 +124,34 @@ public class WeatherApp {
 
     // FETCH DISTRICTS
     private static List<District> fetchDistricts() {
-
         List<District> list = new ArrayList<>();
-
         try {
-            String url = "https://bdopenapi.vercel.app/api/geo/districts";
+            for (String part : HttpClient.newHttpClient().send(
+                    HttpRequest.newBuilder(URI.create("https://bdopenapi.vercel.app/api/geo/districts")).build(),
+                    HttpResponse.BodyHandlers.ofString()).body().split("\\{")) {
 
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .build();
-
-            String response = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
-
-            String[] parts = response.split("\\{");
-
-            for (String part : parts) {
                 if (part.contains("\"name\"")) {
-
-                    String id = extractJson(part, "id");
-                    String name = extractJson(part, "name");
-
-                    if (id != null && name != null) {
+                    String id = extractJson(part, "id"),
+                            name = extractJson(part, "name");
+                    if (id != null && name != null)
                         list.add(new District(id, name));
-                    }
                 }
             }
-
         } catch (java.lang.Exception e) {
-            System.out.println("Failed to fetch districts!");
         }
-
         return list;
     }
 
     // FETCH WEATHER
     private static String fetchWeather(String city) {
-
         try {
             String url = "https://api.openweathermap.org/data/2.5/weather?q="
                     + city + "&appid=" + API_KEY + "&units=metric";
 
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .build();
-
-            return client.send(request, HttpResponse.BodyHandlers.ofString()).body();
+            return HttpClient.newHttpClient()
+                    .send(HttpRequest.newBuilder(URI.create(url)).build(),
+                            HttpResponse.BodyHandlers.ofString())
+                    .body();
 
         } catch (java.lang.Exception e) {
             System.out.println("Failed to fetch weather!");
