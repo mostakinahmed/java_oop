@@ -52,12 +52,12 @@ class DistrictWeather extends Location implements Reportable {
     }
 
     public void showReport() {
-        System.out.println("\n====== WEATHER REPORT ======");
+        System.out.println("\n-------- WEATHER REPORT ----------");
         System.out.println("City        : " + getCityName());
         System.out.println("Temperature : " + temp + " °C");
         System.out.println("Humidity    : " + humidity + " %");
         System.out.println("Condition   : " + description);
-        System.out.println("============================");
+        System.out.println("----------------------------------");
     }
 }
 
@@ -71,7 +71,7 @@ public class WeatherApp {
         Scanner sc = new Scanner(System.in);
 
         try {
-            System.out.println("=== BANGLADESH DISTRICT WEATHER ===");
+            System.out.println("----- BANGLADESH DISTRICT WEATHER ----");
 
             List<District> districts = fetchDistricts();
 
