@@ -3,13 +3,12 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.*;
+import java.util.Scanner;
 
-// -abstraction
 interface Reportable {
     void showReport();
 }
 
-// encapsulation
 class Location {
     private String cityName;
 
@@ -22,7 +21,6 @@ class Location {
     }
 }
 
-// district model 
 class District {
     private String id;
     private String name;
@@ -37,7 +35,6 @@ class District {
     }
 }
 
-// inhertance , polymorphism
 class DistrictWeather extends Location implements Reportable {
 
     private double temp;
@@ -57,7 +54,7 @@ class DistrictWeather extends Location implements Reportable {
         System.out.println("Temperature : " + temp + " °C");
         System.out.println("Humidity    : " + humidity + " %");
         System.out.println("Condition   : " + description);
-        System.out.println("----------------------------------");
+        System.out.println("----------------------------------------");
     }
 }
 
@@ -82,7 +79,6 @@ public class WeatherApp {
 
             while (true) {
 
-                // Show districts
                 for (int i = 0; i < districts.size(); i++) {
                     System.out.printf("%2d. %-15s", (i + 1), districts.get(i).getName());
                     if ((i + 1) % 4 == 0)
@@ -122,7 +118,6 @@ public class WeatherApp {
         }
     }
 
-    // fetch district
     private static List<District> fetchDistricts() {
         List<District> list = new ArrayList<>();
         try {
@@ -142,7 +137,6 @@ public class WeatherApp {
         return list;
     }
 
-    // fetch weather
     private static String fetchWeather(String city) {
         try {
             String url = "https://api.openweathermap.org/data/2.5/weather?q="
