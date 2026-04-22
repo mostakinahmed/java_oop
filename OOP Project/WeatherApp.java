@@ -22,7 +22,7 @@ class Location {
     }
 }
 
-// DISTRICT MODEL
+// district model 
 class District {
     private String id;
     private String name;
@@ -37,7 +37,7 @@ class District {
     }
 }
 
-// INHERITANCE , POLYMORPHISM
+// inhertance , polymorphism
 class DistrictWeather extends Location implements Reportable {
 
     private double temp;
@@ -61,7 +61,7 @@ class DistrictWeather extends Location implements Reportable {
     }
 }
 
-// MAIN CLASS
+// Main class
 public class WeatherApp {
 
     private static final String API_KEY = "2ac1f233d3718fd3d0d1cc7795c46cc9";
