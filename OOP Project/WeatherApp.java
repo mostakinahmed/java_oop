@@ -4,12 +4,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.*;
 
-// -ABSTRACTION
+// -abstraction
 interface Reportable {
     void showReport();
 }
 
-// ENCAPSULATION
+// encapsulation
 class Location {
     private String cityName;
 
@@ -92,7 +92,7 @@ public class WeatherApp {
                 System.out.print("\n\nEnter District ID (0 to exit): ");
                 int choice = sc.nextInt();
 
-                // EXIT CONDITION
+                // exit
                 if (choice == 0) {
                     System.out.println("Exiting program... Goodbye!");
                     break;
@@ -122,7 +122,7 @@ public class WeatherApp {
         }
     }
 
-    // FETCH DISTRICTS
+    // fetch district
     private static List<District> fetchDistricts() {
         List<District> list = new ArrayList<>();
         try {
@@ -142,7 +142,7 @@ public class WeatherApp {
         return list;
     }
 
-    // FETCH WEATHER
+    // fetch weather
     private static String fetchWeather(String city) {
         try {
             String url = "https://api.openweathermap.org/data/2.5/weather?q="
@@ -159,7 +159,7 @@ public class WeatherApp {
         }
     }
 
-    // PARSE WEATHER
+    // parse weather
     private static String extractValue(String data, String key) {
         try {
             String search = "\"" + key + "\":";
@@ -179,7 +179,7 @@ public class WeatherApp {
         }
     }
 
-    // PARSE DISTRICT
+    // parse district
     private static String extractJson(String data, String key) {
 
         try {
