@@ -48,7 +48,8 @@ public class TechFest {
         System.out.println("Size of FinalList: " + finalList.size());
 
         // 8. Clear the FinalList
-        
+
+        // 8. Clear the FinalList
         finalList.clear();
 
         // 9. Check if the FinalList is empty
