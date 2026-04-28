@@ -1,24 +1,43 @@
 package Final;
 
+public
+package Final;
+
 interface Shape {
 
 }
 
 interface Colorable {
 
-    public void fillColor();
+    void fillColor();
+}
+
+abstract class A {
+
+}
+
+interface B {
+
+}
+
+class C extends A implements B {
+
 }
 
 public class ColorShape implements Shape, Colorable {
+
     @Override
     public void fillColor() {
-        System.out.println("Fill the shape with color.");
+        System.out.println("Fil in the dhjape with color.");
 
     }
 
     public static void main(String[] args) {
 
-        ColorShape m = new ColorShape();
-        m.fillColor();
+        ColorShapae n = new ColorShapae();
+        n.fillColor();
     }
+
+}{
+
 }
