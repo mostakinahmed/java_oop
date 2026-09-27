@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Encapsulation: Product Class
 class Product {
     private String name;
     private double price;
@@ -16,7 +15,6 @@ class Product {
     }
 }
 
-// Abstraction: Base User Class
 abstract class User {
     private String username;
     private String password;
@@ -34,30 +32,26 @@ abstract class User {
         return password;
     }
 
-    // Polymorphic method
     public abstract void showMenu(Scanner scanner, ECommerceSystem system);
 }
 
-// Inheritance & Polymorphism: Customer Class
 class Customer extends User {
     public Customer(String username, String password) {
         super(username, password);
     }
 
-    @Override
     public void showMenu(Scanner scanner, ECommerceSystem system) {
         System.out.println("\nWelcome, " + getUsername() + "!");
         system.displayProducts();
     }
 }
 
-// System Controller
 class ECommerceSystem {
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<Product> products = new ArrayList<>();
 
     public ECommerceSystem() {
-        // 10 Default Products
+
         String[] names = { "Laptop", "Phone", "Headphones", "Smartwatch", "Keyboard",
                 "Mouse", "Monitor", "Printer", "Tablet", "Speaker" };
         double[] prices = { 800, 500, 50, 150, 30, 20, 200, 120, 300, 80 };
@@ -82,7 +76,7 @@ class ECommerceSystem {
     }
 
     public void displayProducts() {
-        System.out.println("\n--- Available Products ---");
+        System.out.println("\nAvailable Products...........");
         for (int i = 0; i < products.size(); i++) {
             System.out.print((i + 1) + ". ");
             products.get(i).display();
@@ -118,10 +112,10 @@ public class Main {
                 if (loggedIn != null) {
                     loggedIn.showMenu(scanner, system);
                 } else {
-                    System.out.println("Invalid login credentials!");
+                    System.out.println("Invalid login info!");
                 }
             } else {
-                System.out.println("Goodbye!");
+                System.out.println("Bidai....!");
                 break;
             }
         }
